@@ -2,6 +2,7 @@ package portfolio.service.AchievementService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,5 +55,8 @@ public class AchievementService
         Achievement achievement = new Achievement(name, description, type, technologies);
         return achievementRepository.save(achievement);
     }
-    
+    public Achievement getAchievementById(Long id)
+    {
+        return achievementRepository.findById(id).get();
+    }
 }

@@ -18,9 +18,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import portfolio.entity.AchievementType.AchievementType;
 import portfolio.entity.Technology.Technology;
+import portfolio.entity.Visual.Visual;
 
 @Entity
 @Table(name = "Achievements")
@@ -45,6 +47,8 @@ public class Achievement
         this.type = type;
         this.technologies = technologies;
     }
+    @OneToMany(mappedBy = "id.achievement")
+    private List<Visual> visuals;
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

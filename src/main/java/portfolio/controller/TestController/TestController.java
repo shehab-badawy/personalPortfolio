@@ -1,9 +1,11 @@
 package portfolio.controller.TestController;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +19,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import portfolio.entity.Achievement.Achievement;
 import portfolio.entity.AchievementType.AchievementType;
 import portfolio.entity.Technology.Technology;
+import portfolio.entity.Visual.Visual;
 import portfolio.service.AchievementService.AchievementService;
 import portfolio.service.AchievementTypeService.AchievementTypeService;
 import portfolio.service.TechnologyService.TechnologyService;
+import portfolio.service.VisualService.VisualService;
 
 @RestController
 @RequestMapping("/test")
@@ -32,6 +36,8 @@ public class TestController
     AchievementService achievementService;
     @Autowired
     TechnologyService technologyService;
+    @Autowired
+    VisualService visualService;
     @GetMapping(value = "/types")
     public List<AchievementType> test()
     {
@@ -46,6 +52,12 @@ public class TestController
     public List<Technology> test3()
     {
         return technologyService.getAllTechnolgoies();
+    }
+    @GetMapping("/visuals/{id}")
+    public List<Visual> test10(@PathVariable Long id)
+    {
+        Achievement achievement = achievementService.getAchievementById(id);
+        return visualService.findVisualsByAchievement(achievement);
     }
     @PostMapping("/achies")
     public Achievement test4(@RequestBody String rawJson) throws JsonMappingException, JsonProcessingException

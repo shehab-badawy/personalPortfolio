@@ -3,6 +3,7 @@ package portfolio.entity.Visual;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import portfolio.entity.Achievement.Achievement;
 import portfolio.entity.VisualKey.VisualKey;
 
 @Entity
@@ -33,6 +34,6 @@ public class Visual
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     
 }

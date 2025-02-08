@@ -3,6 +3,8 @@ package portfolio.entity.VisualKey;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -12,6 +14,7 @@ import portfolio.entity.Achievement.Achievement;
 public class VisualKey implements Serializable
 {
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "achievement_id")
     private Achievement achievement;
     private String visualLink;

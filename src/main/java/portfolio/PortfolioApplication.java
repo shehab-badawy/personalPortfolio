@@ -1,5 +1,6 @@
 package portfolio;
 
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -10,24 +11,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.transaction.Transactional;
+import portfolio.Upload.Storage.StorageProperties;
 import portfolio.entity.Achievement.Achievement;
 import portfolio.entity.AchievementType.AchievementType;
 import portfolio.entity.Person.Person;
 import portfolio.entity.Post.Post;
 import portfolio.entity.Technology.Technology;
+import portfolio.entity.Visual.Visual;
+import portfolio.entity.VisualKey.VisualKey;
 import portfolio.repository.AchievementRepo.AchievementRepository;
 import portfolio.repository.AchievementTypeRepo.AchievementTypeRepository;
 import portfolio.repository.PersonRepository.PersonRepository;
 import portfolio.repository.PostRepo.PostRepository;
 import portfolio.repository.TechnologyRepo.TechnologyRepository;
+import portfolio.repository.VisualRepository.VisualRepository;
+import portfolio.service.VisualService.VisualService;
 
 
 @SpringBootApplication
-@RestController
+@EnableConfigurationProperties(StorageProperties.class)
+
 public class PortfolioApplication implements CommandLineRunner {
 
     @Autowired
@@ -40,16 +50,14 @@ public class PortfolioApplication implements CommandLineRunner {
     TechnologyRepository technologyRepository;
     @Autowired 
     AchievementTypeRepository achievementTypeRepository;
+    @Autowired
+    VisualRepository visualRepository;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         SpringApplication.run(PortfolioApplication.class, args);
     }
 
-    @GetMapping("/")
-    String test()
-    {
-        return "hello";
-    }
     @Transactional
     @Override
     public void run(String... args) throws Exception 
@@ -75,6 +83,9 @@ public class PortfolioApplication implements CommandLineRunner {
         }
         achievement = new Achievement("Rov", "Remotely Operated Vehicle", achievementType, ts);
         achievementRepository.save(achievement);
+        VisualKey visualKey = new VisualKey(achievement, "youtubelink");
+        Visual visual = new Visual(visualKey, "this is a video to show bla bla");
+        visualRepository.save(visual);
 
     }
 }
