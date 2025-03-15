@@ -1,0 +1,6 @@
+# Ignore Gradle build files and IDE configurations
+.gradle/
+!build/libs/
+target/
+*.iml
+*.log

@@ -62,30 +62,30 @@ public class PortfolioApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception 
     {
-        Technology t = new Technology("C");
-        // technologyRepository.save(t);
-        AchievementType achievementType = new AchievementType("Personal Project");
-        // achievementTypeRepository.save(achievementType);
-        List<Technology> ts = new ArrayList<Technology>();
-        ts.add(t);
-        Achievement achievement = new Achievement("detecting metal car", "it is a car that detects metals", achievementType, ts);
-        achievementRepository.save(achievement);
-        Long t_id = achievement.getTechnologies().get(0).getId();
-        Optional<Technology> t1 = technologyRepository.findById(t_id);
-        if(t1 != null)
-        {
-            System.out.println("yahoooo");
-            System.out.println(t1.get().getName());
-        }
-        else
-        {
-            System.out.println("oh no");
-        }
-        achievement = new Achievement("Rov", "Remotely Operated Vehicle", achievementType, ts);
-        achievementRepository.save(achievement);
-        VisualKey visualKey = new VisualKey(achievement, "youtubelink");
-        Visual visual = new Visual(visualKey, "this is a video to show bla bla");
-        visualRepository.save(visual);
+        // Technology t = new Technology("C");
+        // // technologyRepository.save(t);
+        // AchievementType achievementType = new AchievementType("Personal Project");
+        // // achievementTypeRepository.save(achievementType);
+        // List<Technology> ts = new ArrayList<Technology>();
+        // ts.add(t);
+        // Achievement achievement = new Achievement("detecting metal car", "it is a car that detects metals", achievementType, ts);
+        // achievementRepository.save(achievement);
+        // Long t_id = achievement.getTechnologies().get(0).getId();
+        // Optional<Technology> t1 = technologyRepository.findById(t_id);
+        // if(t1 != null)
+        // {
+        //     System.out.println("yahoooo");
+        //     System.out.println(t1.get().getName());
+        // }
+        // else
+        // {
+        //     System.out.println("oh no");
+        // }
+        // achievement = new Achievement("Rov", "Remotely Operated Vehicle", achievementType, ts);
+        // achievementRepository.save(achievement);
+        // VisualKey visualKey = new VisualKey(achievement, "youtubelink");
+        // Visual visual = new Visual(visualKey, "this is a video to show bla bla");
+        // visualRepository.save(visual);
 
     }
 }

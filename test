@@ -1,0 +1,169 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :resolveMainClassName UP-TO-DATE
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.0)
+
+2025-02-24T19:23:35.863-05:00  INFO 3593417 --- [portfolio] [           main] portfolio.PortfolioApplication           : Starting PortfolioApplication using Java 21.0.6 with PID 3593417 (/home/lordpopo/projects/springboot/portfolio/build/classes/java/main started by lordpopo in /home/lordpopo/projects/springboot/portfolio)
+2025-02-24T19:23:35.865-05:00  INFO 3593417 --- [portfolio] [           main] portfolio.PortfolioApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-02-24T19:23:36.407-05:00  INFO 3593417 --- [portfolio] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-24T19:23:36.449-05:00  INFO 3593417 --- [portfolio] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 6 JPA repository interfaces.
+2025-02-24T19:23:36.916-05:00  INFO 3593417 --- [portfolio] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-02-24T19:23:36.925-05:00  INFO 3593417 --- [portfolio] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-24T19:23:36.926-05:00  INFO 3593417 --- [portfolio] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-02-24T19:23:36.957-05:00  INFO 3593417 --- [portfolio] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-24T19:23:36.957-05:00  INFO 3593417 --- [portfolio] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1061 ms
+2025-02-24T19:23:37.183-05:00  INFO 3593417 --- [portfolio] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-24T19:23:37.218-05:00  INFO 3593417 --- [portfolio] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2025-02-24T19:23:37.238-05:00  INFO 3593417 --- [portfolio] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-24T19:23:37.414-05:00  INFO 3593417 --- [portfolio] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-24T19:23:37.432-05:00  INFO 3593417 --- [portfolio] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-24T19:23:37.532-05:00  INFO 3593417 --- [portfolio] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@31082efa
+2025-02-24T19:23:37.533-05:00  INFO 3593417 --- [portfolio] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-24T19:23:37.551-05:00  WARN 3593417 --- [portfolio] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-02-24T19:23:37.562-05:00  INFO 3593417 --- [portfolio] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-24T19:23:38.251-05:00  INFO 3593417 --- [portfolio] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    set client_min_messages = WARNING
+Hibernate: 
+    alter table if exists achievements 
+       drop constraint if exists FKmo6m290wsq95a6y226ynky0a8
+Hibernate: 
+    alter table if exists achievements_technologies 
+       drop constraint if exists FK3hrnglvwwana2bxlprow3c5hb
+Hibernate: 
+    alter table if exists achievements_technologies 
+       drop constraint if exists FKd5gbvd3k7e8ymnafabq6yheq7
+Hibernate: 
+    alter table if exists posts 
+       drop constraint if exists FKoehc0y5se21rdwbf0j2dhr2bq
+Hibernate: 
+    alter table if exists visuals 
+       drop constraint if exists FKk3ngxl41h99f4mkwnq83vcujl
+Hibernate: 
+    drop table if exists achievement_types cascade
+Hibernate: 
+    drop table if exists achievements cascade
+Hibernate: 
+    drop table if exists achievements_technologies cascade
+Hibernate: 
+    drop table if exists persons cascade
+Hibernate: 
+    drop table if exists posts cascade
+Hibernate: 
+    drop table if exists technologies cascade
+Hibernate: 
+    drop table if exists visuals cascade
+Hibernate: 
+    drop sequence if exists achievement_types_seq
+Hibernate: 
+    drop sequence if exists achievements_seq
+Hibernate: 
+    drop sequence if exists persons_seq
+Hibernate: 
+    drop sequence if exists posts_seq
+Hibernate: 
+    drop sequence if exists technologies_seq
+Hibernate: 
+    create sequence achievement_types_seq start with 1 increment by 50
+Hibernate: 
+    create sequence achievements_seq start with 1 increment by 50
+Hibernate: 
+    create sequence persons_seq start with 1 increment by 50
+Hibernate: 
+    create sequence posts_seq start with 1 increment by 50
+Hibernate: 
+    create sequence technologies_seq start with 1 increment by 50
+Hibernate: 
+    create table achievement_types (
+        id bigint not null,
+        name varchar(255) not null unique,
+        primary key (id)
+    )
+Hibernate: 
+    create table achievements (
+        id bigint not null,
+        type_id bigint not null,
+        description varchar(255) not null,
+        git_hub_link varchar(255),
+        name varchar(255) not null unique,
+        primary key (id)
+    )
+Hibernate: 
+    create table achievements_technologies (
+        achie_id bigint not null,
+        tech_id bigint not null
+    )
+Hibernate: 
+    create table persons (
+        id bigint not null,
+        name varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table posts (
+        id bigint not null,
+        person_id bigint not null,
+        descreption varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table technologies (
+        id bigint not null,
+        name varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table visuals (
+        achievement_id bigint not null,
+        description varchar(255),
+        visual_link varchar(255) not null,
+        primary key (achievement_id, visual_link)
+    )
+Hibernate: 
+    alter table if exists achievements 
+       add constraint FKmo6m290wsq95a6y226ynky0a8 
+       foreign key (type_id) 
+       references achievement_types
+Hibernate: 
+    alter table if exists achievements_technologies 
+       add constraint FK3hrnglvwwana2bxlprow3c5hb 
+       foreign key (tech_id) 
+       references technologies
+Hibernate: 
+    alter table if exists achievements_technologies 
+       add constraint FKd5gbvd3k7e8ymnafabq6yheq7 
+       foreign key (achie_id) 
+       references achievements
+Hibernate: 
+    alter table if exists posts 
+       add constraint FKoehc0y5se21rdwbf0j2dhr2bq 
+       foreign key (person_id) 
+       references persons
+Hibernate: 
+    alter table if exists visuals 
+       add constraint FKk3ngxl41h99f4mkwnq83vcujl 
+       foreign key (achievement_id) 
+       references achievements
+2025-02-24T19:23:38.304-05:00  INFO 3593417 --- [portfolio] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-24T19:23:38.666-05:00  WARN 3593417 --- [portfolio] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-24T19:23:39.127-05:00  INFO 3593417 --- [portfolio] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-02-24T19:23:39.177-05:00  INFO 3593417 --- [portfolio] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-02-24T19:23:39.186-05:00  INFO 3593417 --- [portfolio] [           main] portfolio.PortfolioApplication           : Started PortfolioApplication in 3.575 seconds (process running for 3.779)
