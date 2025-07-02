@@ -47,8 +47,9 @@ public class Achievement
         this.type = type;
         this.technologies = technologies;
     }
-    @OneToMany(mappedBy = "id.achievement")
-    private List<Visual> visuals;
+    @OneToMany(mappedBy = "id.achievement", cascade = CascadeType.ALL)
+    private List<Visual> visuals = new ArrayList<>();  // <-- initialize it!
+
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -125,6 +126,10 @@ public class Achievement
 
     public void setTechnologies(List<Technology> technologies) {
         this.technologies = technologies;
+    }
+
+    public List<Visual> getVisuals() {
+        return visuals;
     }
     
 }

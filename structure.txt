@@ -1,0 +1,179 @@
+.
+├── bin
+│   ├── main
+│   │   ├── application.properties
+│   │   ├── portfolio
+│   │   │   ├── configuration
+│   │   │   │   ├── Config.class
+│   │   │   │   ├── OpenApiConfig.class
+│   │   │   │   ├── SecurityConfig.class
+│   │   │   │   └── StartupRunner.class
+│   │   │   ├── controller
+│   │   │   │   └── TestController
+│   │   │   │       └── TestController.class
+│   │   │   ├── DTO
+│   │   │   │   ├── AchievementDTO
+│   │   │   │   │   └── AchievementDTO.class
+│   │   │   │   ├── AchievementTypeDTO
+│   │   │   │   └── TechnologyDTO
+│   │   │   │       └── TechnologyDTO.class
+│   │   │   ├── entity
+│   │   │   │   ├── Achievement
+│   │   │   │   │   └── Achievement.class
+│   │   │   │   ├── AchievementType
+│   │   │   │   │   └── AchievementType.class
+│   │   │   │   ├── Admin
+│   │   │   │   │   └── Admin.class
+│   │   │   │   ├── Person
+│   │   │   │   │   └── Person.class
+│   │   │   │   ├── Post
+│   │   │   │   │   └── Post.class
+│   │   │   │   ├── Technology
+│   │   │   │   │   └── Technology.class
+│   │   │   │   ├── Visual
+│   │   │   │   │   └── Visual.class
+│   │   │   │   └── VisualKey
+│   │   │   │       └── VisualKey.class
+│   │   │   ├── PortfolioApplication.class
+│   │   │   ├── repository
+│   │   │   │   ├── AchievementRepo
+│   │   │   │   │   └── AchievementRepository.class
+│   │   │   │   ├── AchievementTypeRepo
+│   │   │   │   │   └── AchievementTypeRepository.class
+│   │   │   │   ├── AdminRepository
+│   │   │   │   │   └── AdminRepository.class
+│   │   │   │   ├── PersonRepository
+│   │   │   │   │   └── PersonRepository.class
+│   │   │   │   ├── PostRepo
+│   │   │   │   │   └── PostRepository.class
+│   │   │   │   ├── TechnologyRepo
+│   │   │   │   │   └── TechnologyRepository.class
+│   │   │   │   └── VisualRepository
+│   │   │   │       └── VisualRepository.class
+│   │   │   ├── Security
+│   │   │   │   ├── JwtAuthenticationFilter.class
+│   │   │   │   └── JwtUtil.class
+│   │   │   ├── service
+│   │   │   │   ├── AchievementService
+│   │   │   │   │   └── AchievementService.class
+│   │   │   │   ├── AchievementTypeService
+│   │   │   │   │   └── AchievementTypeService.class
+│   │   │   │   ├── TechnologyService
+│   │   │   │   │   └── TechnologyService.class
+│   │   │   │   └── VisualService
+│   │   │   │       └── VisualService.class
+│   │   │   ├── Upload
+│   │   │   │   └── Storage
+│   │   │   │       ├── FileSystemStorage.class
+│   │   │   │       ├── StorageException.class
+│   │   │   │       ├── StorageFileNotFoundException.class
+│   │   │   │       ├── StorageProperties.class
+│   │   │   │       └── StorageService.class
+│   │   │   └── uploadingfiles
+│   │   │       └── FileUploadController.class
+│   │   └── templates
+│   └── test
+│       └── portfolio
+│           └── PortfolioApplicationTests.class
+├── build.gradle
+├── create.sql
+├── docker-compose.yml
+├── dockerfile
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+├── HELP.md
+├── output
+├── schema.sql
+├── settings.gradle
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── portfolio
+│   │   │       ├── configuration
+│   │   │       │   ├── Config.java
+│   │   │       │   ├── OpenApiConfig.java
+│   │   │       │   ├── SecurityConfig.java
+│   │   │       │   └── StartupRunner.java
+│   │   │       ├── controller
+│   │   │       │   └── TestController
+│   │   │       │       └── TestController.java
+│   │   │       ├── DTO
+│   │   │       │   ├── AchievementDTO
+│   │   │       │   │   └── AchievementDTO.java
+│   │   │       │   ├── AchievementTypeDTO
+│   │   │       │   └── TechnologyDTO
+│   │   │       │       └── TechnologyDTO.java
+│   │   │       ├── entity
+│   │   │       │   ├── Achievement
+│   │   │       │   │   └── Achievement.java
+│   │   │       │   ├── AchievementType
+│   │   │       │   │   └── AchievementType.java
+│   │   │       │   ├── Admin
+│   │   │       │   │   └── Admin.java
+│   │   │       │   ├── Person
+│   │   │       │   │   └── Person.java
+│   │   │       │   ├── Post
+│   │   │       │   │   └── Post.java
+│   │   │       │   ├── Technology
+│   │   │       │   │   └── Technology.java
+│   │   │       │   ├── Visual
+│   │   │       │   │   └── Visual.java
+│   │   │       │   └── VisualKey
+│   │   │       │       └── VisualKey.java
+│   │   │       ├── PortfolioApplication.java
+│   │   │       ├── repository
+│   │   │       │   ├── AchievementRepo
+│   │   │       │   │   └── AchievementRepository.java
+│   │   │       │   ├── AchievementTypeRepo
+│   │   │       │   │   └── AchievementTypeRepository.java
+│   │   │       │   ├── AdminRepository
+│   │   │       │   │   └── AdminRepository.java
+│   │   │       │   ├── PersonRepository
+│   │   │       │   │   └── PersonRepository.java
+│   │   │       │   ├── PostRepo
+│   │   │       │   │   └── PostRepository.java
+│   │   │       │   ├── TechnologyRepo
+│   │   │       │   │   └── TechnologyRepository.java
+│   │   │       │   └── VisualRepository
+│   │   │       │       └── VisualRepository.java
+│   │   │       ├── Security
+│   │   │       │   ├── JwtAuthenticationFilter.java
+│   │   │       │   └── JwtUtil.java
+│   │   │       ├── service
+│   │   │       │   ├── AchievementService
+│   │   │       │   │   └── AchievementService.java
+│   │   │       │   ├── AchievementTypeService
+│   │   │       │   │   └── AchievementTypeService.java
+│   │   │       │   ├── TechnologyService
+│   │   │       │   │   └── TechnologyService.java
+│   │   │       │   └── VisualService
+│   │   │       │       └── VisualService.java
+│   │   │       ├── Upload
+│   │   │       │   └── Storage
+│   │   │       │       ├── FileSystemStorage.java
+│   │   │       │       ├── StorageException.java
+│   │   │       │       ├── StorageFileNotFoundException.java
+│   │   │       │       ├── StorageProperties.java
+│   │   │       │       └── StorageService.java
+│   │   │       └── uploadingfiles
+│   │   │           └── FileUploadController.java
+│   │   └── resources
+│   │       ├── application.properties
+│   │       ├── static
+│   │       └── templates
+│   └── test
+│       └── java
+│           └── portfolio
+│               └── PortfolioApplicationTests.java
+├── structure.txt
+├── test
+└── upload-dir
+    ├── Screenshot From 2025-02-03 04-04-34.png
+    ├── Screenshot From 2025-02-03 04-06-43.png
+    └── Screenshot From 2025-02-03 04-50-04.png
+
+86 directories, 91 files

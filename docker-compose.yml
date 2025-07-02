@@ -21,6 +21,8 @@ services:
     container_name: portfolio_app
     depends_on:
       - database
+    volumes:
+      - ./upload-dir:/app/upload-dir
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/portfolio_tut
       SPRING_DATASOURCE_USERNAME: lord_tut

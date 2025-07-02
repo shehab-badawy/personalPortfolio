@@ -1,4 +1,4 @@
-package portfolio.uploadingfiles;
+package portfolio.controller;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.nio.file.Files;
@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -29,6 +30,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ch.qos.logback.classic.Logger;
 import portfolio.Upload.Storage.StorageFileNotFoundException;
 import portfolio.Upload.Storage.StorageService;
 import portfolio.entity.Achievement.Achievement;
@@ -38,7 +40,7 @@ import portfolio.service.AchievementService.AchievementService;
 import portfolio.service.VisualService.VisualService;
 
 @Controller
-@RequestMapping("/upload")
+@RequestMapping("/")
 public class FileUploadController {
 
 	private final StorageService storageService;
@@ -51,7 +53,7 @@ public class FileUploadController {
 		this.storageService = storageService;
 	}
 
-	@GetMapping("/")
+	@GetMapping("/images")
 	public String listUploadedFiles(Model model) throws IOException 
 	{
 
@@ -64,7 +66,7 @@ public class FileUploadController {
 		return "uploadForm";
 	}
 
-	@GetMapping("/files/{filename:.+}")
+	@GetMapping("/images/files/{filename:.+}")
 	@ResponseBody
 	public ResponseEntity<Resource> serveFile(@PathVariable String filename) 
 	{
@@ -93,11 +95,11 @@ public class FileUploadController {
 				.body(file);
 	}
 
-	@PostMapping("/")
-	public ResponseEntity<JsonNode>  handleFileUpload(@RequestParam("files") MultipartFile[] files, @RequestParam("achievement_id") Long achie_id)
+	@PostMapping("/admin/{achie_id}/upload")
+	public ResponseEntity<JsonNode>  handleFileUpload(@RequestParam("files") MultipartFile[] files, @PathVariable Long achie_id)
     {
-        System.out.println("we are here --------------------------------------------");
-		System.out.println(achie_id);
+		final org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
+		logger.info("Uploaded achievement id: {}", achie_id);
 		Achievement achievement =  achievementService.getAchievementById(achie_id);
 
 		Arrays.asList(files).stream().forEach(

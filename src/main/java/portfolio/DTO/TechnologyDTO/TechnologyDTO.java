@@ -1,15 +1,19 @@
 package portfolio.DTO.TechnologyDTO;
 
-import java.util.ArrayList;
-import java.util.List;
+public class TechnologyDTO {
+    private String name;
 
+    public TechnologyDTO() {}
 
-import portfolio.entity.Achievement.Achievement;
+    public TechnologyDTO(String name) {
+        this.name = name;
+    }
 
-public class TechnologyDTO 
-{
-    private Long id;
-    public String name;
-    private List<Achievement> achievements;
-    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
