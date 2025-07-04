@@ -37,4 +37,9 @@ out/
 .vscode/
 
 ### uploaded files
-upload-dir/
+# Ignore all contents of upload-dir except the folder itself
+upload-dir/*
+!upload-dir/.gitkeep
+
+# Ignore .env file
+.env

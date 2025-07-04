@@ -36,6 +36,7 @@ import portfolio.repository.PostRepo.PostRepository;
 import portfolio.repository.TechnologyRepo.TechnologyRepository;
 import portfolio.repository.VisualRepository.VisualRepository;
 import portfolio.service.VisualService.VisualService;
+import io.github.cdimascio.dotenv.Dotenv;
 
 
 @SpringBootApplication
@@ -63,6 +64,12 @@ public class PortfolioApplication implements CommandLineRunner {
     }
     public static void main(String[] args) 
     {
+        Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+
+        System.setProperty("spring.datasource.url", dotenv.get("DB_URL"));
+        System.setProperty("spring.datasource.username", dotenv.get("DB_USERNAME"));
+        System.setProperty("spring.datasource.password", dotenv.get("DB_PASSWORD"));
+
         SpringApplication.run(PortfolioApplication.class, args);
     }
 
