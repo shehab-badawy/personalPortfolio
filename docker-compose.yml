@@ -7,26 +7,26 @@ services:
     restart: always
     environment:
       POSTGRES_DB: portfolio_tut
-      POSTGRES_USER: lord_tut
-      POSTGRES_PASSWORD: password
-    ports:
-      - "5432:5432"
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db_data:/var/lib/postgresql/data
     networks:
       - backend
 
   app:
     build:
       context: .
-      dockerfile: Dockerfile    # This assumes your Dockerfile is in the current directory
+      dockerfile: Dockerfile
     container_name: portfolio_app
     depends_on:
       - database
     volumes:
       - ./upload-dir:/app/upload-dir
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/portfolio_tut
-      SPRING_DATASOURCE_USERNAME: lord_tut
-      SPRING_DATASOURCE_PASSWORD: password
+      DB_URL: ${DB_URL}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
     ports:
       - "8080:8080"
     networks:
@@ -34,3 +34,6 @@ services:
 
 networks:
   backend:
+
+volumes:
+  db_data:
